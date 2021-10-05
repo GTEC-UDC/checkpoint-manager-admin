@@ -37,7 +37,7 @@ export const RouteCreate = (props) => (
 
 <SimpleForm>
             <TextInput source="tag" label="Route tag"/>
-            <ReferenceArrayInput label="Checkpoints" source="points"  reference="checkpoints" perPage="100">
+            <ReferenceArrayInput label="Checkpoints" source="points"  reference="checkpoints" perPage={100} sort={{ field: 'tag', order: 'ASC' }}>
                 <AutocompleteArrayInput optionText="tag" allowDuplicates="true"/>
             </ReferenceArrayInput>
         </SimpleForm>
