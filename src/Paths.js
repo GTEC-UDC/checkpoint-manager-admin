@@ -7,7 +7,7 @@ function tsToDate(ts){
 
 
 
-    var date = new Date(ts * 1000);
+    var date = new Date(ts);
     var day = date.getDate();
     var year = date.getFullYear();
   var month = date.getMonth()+1;
