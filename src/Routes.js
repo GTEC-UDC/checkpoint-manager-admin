@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Edit, required, Create, SimpleForm,ArrayInput, SimpleFormIterator,NumberInput,  
     SimpleShowLayout, Show, List, Datagrid, TextField, DateField, ArrayField , 
-    SingleFieldList, ChipField, NumberField, TextInput,ReferenceArrayInput, SelectArrayInput, ReferenceArrayField } from 'react-admin';
+    SingleFieldList, ChipField, NumberField, TextInput,ReferenceArrayInput, SelectArrayInput,AutocompleteArrayInput} from 'react-admin';
 
 export const RouteList = props => (
     <List {...props}>
@@ -34,10 +34,11 @@ export const RouteShow = props => (
 
 export const RouteCreate = (props) => (
     <Create {...props}>
-        <SimpleForm>
-            <TextInput source="tag"/>
+
+<SimpleForm>
+            <TextInput source="tag" label="Route tag"/>
             <ReferenceArrayInput label="Checkpoints" source="points"  reference="checkpoints">
-                <SelectArrayInput optionText="tag" />
+                <AutocompleteArrayInput optionText="tag" allowDuplicates="true"/>
             </ReferenceArrayInput>
         </SimpleForm>
     </Create>
