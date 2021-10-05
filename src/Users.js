@@ -6,7 +6,12 @@ export const UserList = props => (
         <Datagrid rowClick="show">
             <TextField source="id" />
             <EmailField source="email" />
-            <DateField source="createdAt" showTime  />
+            <DateField source="createdAt" showTime locales="es-ES" options={{
+        year: 'numeric', month: 'numeric',  day: 'numeric', 
+        hour: 'numeric', minute: 'numeric', 
+        second: 'numeric', fractionalSecondDigits: 3,
+        hour12: false
+    }}/>
         </Datagrid>
     </List>
 );
@@ -24,7 +29,12 @@ export const UserShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
             <EmailField source="email" />
-            <DateField label="Creation" source="createdAt" showTime />
+            <DateField label="Creation" source="createdAt" showTime locales="es-ES" options={{
+        year: 'numeric', month: 'numeric',  day: 'numeric', 
+        hour: 'numeric', minute: 'numeric', 
+        second: 'numeric', fractionalSecondDigits: 3,
+        hour12: false
+    }} />
         </SimpleShowLayout>
     </Show>
 );

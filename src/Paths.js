@@ -17,7 +17,7 @@ function tsToDate(ts){
     var seconds = "0" + date.getSeconds();
     var mili = "00" + date.getMilliseconds();
 
-    var formattedTime = day + '/'+ month+'/'+year +' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    var formattedTime = day + '/'+ month+'/'+year +' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)+"."+mili.substr(-3);
     
 
     return formattedTime;
@@ -26,9 +26,6 @@ function tsToDate(ts){
 
 const UnixTSField = ({ source }) => {
     const record = useRecordContext();
-    const milliseconds = Number(record[source]) * 1000;
-    const dateObject = new Date(milliseconds);
-    //const humanDateFormat = dateObject.toLocaleString();
     const humanDateFormat = tsToDate(Number(record[source]));
 
     return (<span>{humanDateFormat}</span>);
@@ -45,7 +42,12 @@ export const PathList = props => (
             <ReferenceField source="ownerId" reference="users">
                 <EmailField source="email" />
             </ReferenceField>
-            <DateField source="createdAt" showTime />
+            <DateField source="createdAt" showTime  locales="es-ES" options={{
+        year: 'numeric', month: 'numeric',  day: 'numeric', 
+        hour: 'numeric', minute: 'numeric', 
+        second: 'numeric', fractionalSecondDigits: 3,
+        hour12: false
+    }}/>
         </Datagrid>
     </List>
 );
@@ -61,7 +63,12 @@ export const PathShow = props => (
             <ReferenceField source="ownerId" reference="users">
                 <EmailField source="email" />
             </ReferenceField>
-            <DateField source="createdAt" showTime />
+            <DateField source="createdAt" showTime locales="es-ES" options={{
+        year: 'numeric', month: 'numeric',  day: 'numeric', 
+        hour: 'numeric', minute: 'numeric', 
+        second: 'numeric', fractionalSecondDigits: 3,
+        hour12: false
+    }}/>
             <ArrayField source="checkpoints">
                     <Datagrid>
                         <TextField source="tag" />
