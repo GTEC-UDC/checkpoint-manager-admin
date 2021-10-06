@@ -8,6 +8,7 @@ import { RouteList, RouteShow, RouteCreate, RouteEdit} from './Routes';
 import { PathList, PathShow } from './Paths';
 import { CheckpointList, CheckpointCreate, CheckpointShow, CheckpointEdit } from './Checkpoints';
 import { BeaconReportList, BeaconReportShow } from './BeaconReports';
+import { TimeSyncList, TimeSyncShow } from './TimeSyncs';
 
 const restClientOptions = {
   id: '_id', 
@@ -30,6 +31,7 @@ const App = () => (
   <Resource name="routes" list={RouteList} show={RouteShow} create={RouteCreate} edit={RouteEdit}/>
   <Resource name="paths" list={PathList} show={PathShow}/>
   <Resource name="beaconreports" list={BeaconReportList} show={BeaconReportShow}/>
+  <Resource name="timesyncs" list={TimeSyncList} show={TimeSyncShow}/>
 
 
 </Admin>);
